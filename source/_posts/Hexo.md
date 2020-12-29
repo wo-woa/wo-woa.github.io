@@ -1,7 +1,7 @@
 ---
 title: Hexo博客
 date: 2020-12-29 15:20:11
-tags: [html,node,git]
+tags: [Html,Node,Git]
 categories: other
 description: Hexo博客的搭建
 ---
@@ -291,3 +291,59 @@ tags 表示类别的分类，可以多个选择，如：[Sql,Mysql]
 categories 表示包含在哪个文件夹下，如：Sql
 
  description 表示这篇博客的描述，如果没有那么首页就会显示文章的所有信息，会导致加载过慢。
+
+
+
+# 源文件上传
+
+## **机制**
+
+hexo的机制是这样的，由于`hexo d`上传部署到github的其实是hexo编译后的文件，是用来生成网页的，不包含源文件。
+
+也就是上传的是在本地目录里自动生成的`.deploy_git`里面。
+
+其他文件 ，包括我们写在source 里面的，和配置文件，主题文件，都没有上传到github
+
+所以可以利用git的分支管理，将源文件上传到github的另一个分支即可。
+
+## **上传分支**
+
+首先，先在github上新建一个hexo分支。
+
+然后在这个仓库的settings中，选择默认分支为hexo分支（这样每次同步的时候就不用指定分支，比较方便）。
+
+然后在本地的任意目录下，打开git bash，
+
+```text
+git clone git@github.com:ZJUFangzh/ZJUFangzh.github.io.git
+```
+
+将其克隆到本地，因为默认分支已经设成了hexo，所以clone时只clone了hexo。
+
+
+
+接下来在克隆到本地的`ZJUFangzh.github.io`中，把除了.git 文件夹外的所有文件都删掉
+
+ 把之前我们写的博客源文件全部复制过来，除了`.deploy_git`。这里应该说一句，复制过来的源文件应该有一个`.gitignore`，用来忽略一些不需要的文件，如果没有的话，自己新建一个，在里面写上如下，表示这些类型文件不需要git：
+
+```text
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+.idea/
+```
+
+**注意**，如果你之前克隆过theme中的主题文件，那么应该把主题文件中的`.git`文件夹删掉，因为git不能嵌套上传，最好是显示隐藏文件，检查一下有没有，否则上传的时候会出错，导致你的主题文件无法上传，这样你的配置在别的电脑上就用不了了。
+
+而后
+
+```text
+git add .
+git commit –m "add branch"
+git push 
+```
+
