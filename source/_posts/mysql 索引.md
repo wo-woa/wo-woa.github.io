@@ -8,9 +8,8 @@ description: mysql explain的使用，索引应该怎么建立
 
 参考：
 
-https://www.cnblogs.com/tufujie/p/9413852.html   Explain详解
-
-https://www.cnblogs.com/duanxz/p/5244737.html   多列索引
+[Explain详解](https://www.cnblogs.com/tufujie/p/9413852.html)
+[多列索引](https://www.cnblogs.com/duanxz/p/5244737.html)
 
 
 
