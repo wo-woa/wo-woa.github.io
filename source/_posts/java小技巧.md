@@ -35,11 +35,8 @@ List<String> s = List.of("1","2","3")
 ### 快速创建Map带初始值
 
 Map<String, Integer> map = new LinkedHashMap<String, Integer>() {{
-
-​            put("city", 1);
-
-​            put("stationNum", 1);
-
+    put("city", 1);
+    put("stationNum", 1);
 }}
 
 
