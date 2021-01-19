@@ -222,8 +222,20 @@ https://github.com/dmajkic/redis
 
 1. 解压安装包
    ![在这里插入图片描述](https://gitee.com/wowoa/typoraPic/raw/master/image2020/20201229144236.jpg)
+   
 2. 开启redis-server.exe
+
 3. 启动redis-cli.exe测试![在这里插入图片描述](https://gitee.com/wowoa/typoraPic/raw/master/image2020/20201229144237.jpg)
+
+4. 将redis注册进服务中
+
+   redis-server.exe --service-install redis.windows.conf 
+
+   windows版本的没有默认配置文件，需要手动指定
+
+
+
+
 
 ### Linux安装
 
