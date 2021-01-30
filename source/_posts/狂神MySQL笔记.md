@@ -111,7 +111,11 @@ https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.19-winx64.zip
 4、编辑 my.ini 文件 ,注意替换路径位置
 
 ```
-[mysqld]basedir=D:\Program Files\mysql-5.7\datadir=D:\Program Files\mysql-5.7\data\port=3306skip-grant-tables
+[mysqld]
+basedir=D:\Program Files\mysql-5.7\
+datadir=D:\Program Files\mysql-5.7\data\
+port=3306
+skip-grant-tables
 ```
 
 5、启动管理员模式下的CMD，并将路径切换至mysql下的bin目录，然后输入mysqld –install (安装mysql)
@@ -134,10 +138,11 @@ flush privileges;
 
 10、修改 my.ini文件删除最后一句skip-grant-tables
 
-11、重启mysql即可正常使用
+11、重启mysql即可正常使用（管理员权限）
 
 ```
-net stop mysqlnet start mysql
+net stop mysql
+net start mysql
 ```
 
 12、连接上测试出现以下结果就安装好了
